@@ -1,0 +1,7 @@
+.env
+build/
+*.db
+*.db-wal
+*.db-shm
+lib/sqlc/dist/
+.scriptc

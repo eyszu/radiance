@@ -1,0 +1,318 @@
+{
+  "ffi_format": 7,
+  "functions": [
+    {
+      "name": "sqlc_abi_version",
+      "symbol": "sqlc_abi_version",
+      "params": [],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_libversion_number",
+      "symbol": "sqlc_libversion_number",
+      "params": [],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_libversion",
+      "symbol": "sqlc_libversion",
+      "params": [
+        "mutable-bytes"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_sourceid",
+      "symbol": "sqlc_sourceid",
+      "params": [
+        "mutable-bytes"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_compileoption",
+      "symbol": "sqlc_compileoption",
+      "params": [
+        "i32",
+        "mutable-bytes"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_memory_used",
+      "symbol": "sqlc_memory_used",
+      "params": [],
+      "returns": "f64"
+    },
+    {
+      "name": "sqlc_open",
+      "symbol": "sqlc_open",
+      "params": [
+        "string",
+        "i32"
+      ],
+      "returns": "pointer"
+    },
+    {
+      "name": "sqlc_close",
+      "symbol": "sqlc_close",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_errcode",
+      "symbol": "sqlc_errcode",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_errmsg",
+      "symbol": "sqlc_errmsg",
+      "params": [
+        "pointer",
+        "mutable-bytes"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_exec",
+      "symbol": "sqlc_exec",
+      "params": [
+        "pointer",
+        "string"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_busy_timeout",
+      "symbol": "sqlc_busy_timeout",
+      "params": [
+        "pointer",
+        "i32"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_interrupt",
+      "symbol": "sqlc_interrupt",
+      "params": [
+        "pointer"
+      ],
+      "returns": "void"
+    },
+    {
+      "name": "sqlc_autocommit",
+      "symbol": "sqlc_autocommit",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_changes",
+      "symbol": "sqlc_changes",
+      "params": [
+        "pointer"
+      ],
+      "returns": "f64"
+    },
+    {
+      "name": "sqlc_total_changes",
+      "symbol": "sqlc_total_changes",
+      "params": [
+        "pointer"
+      ],
+      "returns": "f64"
+    },
+    {
+      "name": "sqlc_last_rowid_f64",
+      "symbol": "sqlc_last_rowid_f64",
+      "params": [
+        "pointer"
+      ],
+      "returns": "f64"
+    },
+    {
+      "name": "sqlc_last_rowid_i64",
+      "symbol": "sqlc_last_rowid_i64",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i64"
+    },
+    {
+      "name": "sqlc_prepare",
+      "symbol": "sqlc_prepare",
+      "params": [
+        "pointer",
+        "string",
+        "i32"
+      ],
+      "returns": "pointer"
+    },
+    {
+      "name": "sqlc_last_rc",
+      "symbol": "sqlc_last_rc",
+      "params": [],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_tail",
+      "symbol": "sqlc_tail",
+      "params": [],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_finalize",
+      "symbol": "sqlc_finalize",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_reset",
+      "symbol": "sqlc_reset",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_clear_bindings",
+      "symbol": "sqlc_clear_bindings",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_step",
+      "symbol": "sqlc_step",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_readonly",
+      "symbol": "sqlc_readonly",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_column_count",
+      "symbol": "sqlc_column_count",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_column_name",
+      "symbol": "sqlc_column_name",
+      "params": [
+        "pointer",
+        "i32",
+        "mutable-bytes"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_bind_count",
+      "symbol": "sqlc_bind_count",
+      "params": [
+        "pointer"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_bind_name",
+      "symbol": "sqlc_bind_name",
+      "params": [
+        "pointer",
+        "i32",
+        "mutable-bytes"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_bind_null",
+      "symbol": "sqlc_bind_null",
+      "params": [
+        "pointer",
+        "i32"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_bind_number",
+      "symbol": "sqlc_bind_number",
+      "params": [
+        "pointer",
+        "i32",
+        "f64"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_bind_int64",
+      "symbol": "sqlc_bind_int64",
+      "params": [
+        "pointer",
+        "i32",
+        "i64"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_bind_text",
+      "symbol": "sqlc_bind_text",
+      "params": [
+        "pointer",
+        "i32",
+        "string"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_bind_blob",
+      "symbol": "sqlc_bind_blob",
+      "params": [
+        "pointer",
+        "i32",
+        "bytes"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_row_pack",
+      "symbol": "sqlc_row_pack",
+      "params": [
+        "pointer",
+        "mutable-bytes",
+        "i32"
+      ],
+      "returns": "i32"
+    },
+    {
+      "name": "sqlc_step_pack",
+      "symbol": "sqlc_step_pack",
+      "params": [
+        "pointer",
+        "mutable-bytes",
+        "i32"
+      ],
+      "returns": "i32"
+    }
+  ],
+  "libraries": [
+    "dist/libsqlc.a"
+  ]
+}

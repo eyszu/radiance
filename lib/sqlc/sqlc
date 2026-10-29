@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# sqlc: builds a program that uses the sqlc driver.
+#
+#   ./sqlc build app.ts -o app        compile app.ts (and libsqlc.a first, if needed) into ./app
+#   ./sqlc run   app.ts               compile and run
+#   ./sqlc native                     only (re)build dist/libsqlc.a
+#
+# It is a thin wrapper: everything after the subcommand goes to `scriptc` unchanged, plus `--ffi sqlc.ffi.json`.
+# Set SCRIPTC=/path/to/scriptc to choose the compiler.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPTC="${SCRIPTC:-scriptc}"
+
+"$HERE/scripts/build-native.sh"
+
+cmd="${1:-}"
+case "$cmd" in
+  native) exit 0 ;;
+  build|run|coverage) shift; exec "$SCRIPTC" "$cmd" "$@" --ffi "$HERE/sqlc.ffi.json" ;;
+  *) echo "usage: sqlc {build|run|coverage|native} [scriptc options] file.ts" >&2; exit 2 ;;
+esac
