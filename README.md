@@ -1,4 +1,4 @@
-# blog — a single-author blog on huskar + sqlc
+# radiance — a mini blog using scritpc + huskar + sqlc
 
 A small blogging app that compiles to **one native executable** (`build/blog`, ~2.9 MB). The web layer is
 [huskar](lib/huskar), the database is SQLite through [sqlc](lib/sqlc/README.md), and both are vendored under `lib/`, so
