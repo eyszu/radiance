@@ -11,7 +11,7 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPTC="${SCRIPTC:-scriptc}"
 
-"$HERE/scripts/build-native.sh"
+bash "$HERE/scripts/build-native.sh"
 
 cmd="${1:-}"
 case "$cmd" in

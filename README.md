@@ -10,7 +10,7 @@ One person writes; everyone reads. There is no user-account module: the author s
 ```bash
 cp .env.example .env            # then set ADMIN_PASSWORD to something long
 export SCRIPTC=/path/to/scriptc # scriptc >= 0.4.5, plus clang
-./build.sh                      # builds build/blog (first build also compiles SQLite, ~35 s)
+bash ./build.sh                      # builds build/blog (first build also compiles SQLite, ~35 s)
 ./build/blog                    # reads ./.env;   ./build/blog /path/to/other.env  to choose a file
 ```
 Open <http://localhost:3000>, go to `/login`, and sign in. Tests: `bun test` (needs the binary built; see below).

@@ -4,4 +4,4 @@ set -euo pipefail
 cd "$(dirname "$0")"
 export SCRIPTC="${SCRIPTC:-scriptc}"
 mkdir -p build
-lib/sqlc/sqlc build src/main.ts -o build/blog
+bash lib/sqlc/sqlc build src/main.ts -o build/blog
