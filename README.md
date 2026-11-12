@@ -1,4 +1,4 @@
-# Blog
+# Radiance
 
 A single-author blog built with [Spectre](https://github.com/eyszu/spectre) (An extremely fast, Express.js-style web microframework for Crystal) and SQLite.
 One admin, one password, kept in `.env`. Visitors read; only you can write.
