@@ -1,6 +1,6 @@
 # Blog
 
-A single-author blog built with [Spectre](vendor/spectre) (a Crystal web framework) and SQLite.
+A single-author blog built with [Spectre](https://github.com/eyszu/spectre) (a blazing fast Crystal web microframework) and SQLite.
 One admin, one password, kept in `.env`. Visitors read; only you can write.
 
 - Public pages: post list with pagination, post pages, RSS feed at `/feed.xml`.
@@ -128,9 +128,3 @@ public/style.css       stylesheet, compiled into the binary
 vendor/spectre         the Spectre framework (0.1.0)
 spec/                  specs
 ```
-
-## Not included
-
-Comments, image uploads, multiple users or password reset (change `ADMIN_PASSWORD` and restart),
-tags, search, editing a post's URL, scheduled or automatic backups, and importing a backup from the browser
-(restore is the manual steps above).
