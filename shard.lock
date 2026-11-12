@@ -1,0 +1,14 @@
+version: 2.0
+shards:
+  db:
+    git: https://github.com/crystal-lang/crystal-db.git
+    version: 0.15.0
+
+  spectre:
+    git: https://github.com/eyszu/spectre.git
+    version: 0.1.0+git.commit.9388dfeec28d913f4381925da5eb29f621995f42
+
+  sqlite3:
+    git: https://github.com/crystal-lang/crystal-sqlite3.git
+    version: 0.24.0
+

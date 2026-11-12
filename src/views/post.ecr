@@ -1,0 +1,18 @@
+<article>
+  <header>
+<% unless @post.published? %>
+    <p class="badge">Draft preview, visible only to you</p>
+<% end %>
+    <h1><%= h(@post.title) %></h1>
+    <p class="meta">
+      <time datetime="<%= iso(@post.published_at || @post.created_at) %>"><%= date(@post.published_at || @post.created_at) %></time>
+      &middot; <%= h(@author) %>
+<% if @admin %>
+      &middot; <a href="/admin/posts/<%= @post.id %>/edit">Edit</a>
+<% end %>
+    </p>
+  </header>
+  <div class="prose">
+<%= Markdown.render(@post.body) %>
+  </div>
+</article>

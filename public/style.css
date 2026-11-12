@@ -1,0 +1,128 @@
+:root {
+  --bg: #fbfaf8;
+  --fg: #1f2328;
+  --muted: #66707a;
+  --line: #e3e0da;
+  --accent: #1d5fd1;
+  --accent-fg: #ffffff;
+  --surface: #ffffff;
+  --danger: #b42318;
+  --ok-bg: #e6f4ea;
+  --ok-fg: #17612c;
+  --err-bg: #fde8e6;
+  --err-fg: #8f1d12;
+  --draft-bg: #fdf1d6;
+  --draft-fg: #7a5200;
+  --serif: Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --fg: #e6e6e3;
+    --muted: #9aa3ad;
+    --line: #2b2f34;
+    --accent: #7aa7ff;
+    --accent-fg: #0d1117;
+    --surface: #1c1f23;
+    --danger: #ff8a7a;
+    --ok-bg: #12301c;
+    --ok-fg: #8fd4a2;
+    --err-bg: #3a1613;
+    --err-fg: #ffb4a8;
+    --draft-bg: #3a2c0c;
+    --draft-fg: #f1c869;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 17px/1.65 var(--sans);
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+header.site, main, footer.site { max-width: 42rem; margin-inline: auto; }
+header.site {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 0.5rem 1.5rem; padding-block: 1.75rem 1.25rem; border-bottom: 1px solid var(--line);
+}
+.brand { font-weight: 700; font-size: 1.15rem; color: var(--fg); text-decoration: none; letter-spacing: -0.01em; }
+header.site nav { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 1.1rem; font-size: 0.95rem; }
+header.site nav form { display: inline; margin: 0; }
+main { padding-block: 2rem 3rem; }
+footer.site {
+  display: flex; justify-content: space-between; gap: 1rem; padding-block: 1.25rem 2.5rem;
+  border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem;
+}
+footer.site a { color: var(--muted); }
+h1, h2, h3, h4 { line-height: 1.25; letter-spacing: -0.015em; text-wrap: balance; }
+h1 { font-size: clamp(1.7rem, 5vw, 2.25rem); margin: 0 0 0.5rem; }
+.meta { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.empty { color: var(--muted); }
+
+ul.posts { list-style: none; margin: 0; padding: 0; }
+ul.posts li { padding-block: 1.4rem; border-bottom: 1px solid var(--line); }
+ul.posts li:first-child { padding-top: 0; }
+ul.posts h2 { margin: 0 0 0.2rem; font-size: 1.4rem; }
+ul.posts h2 a { color: var(--fg); text-decoration: none; }
+ul.posts h2 a:hover { color: var(--accent); text-decoration: underline; }
+ul.posts p:last-child { margin: 0.5rem 0 0; color: var(--fg); }
+.pager { display: flex; justify-content: space-between; padding-top: 1.5rem; }
+.pager .next { margin-left: auto; }
+
+article header { margin-bottom: 1.75rem; }
+.prose { font-family: var(--serif); font-size: 1.12rem; line-height: 1.75; }
+.prose h2, .prose h3, .prose h4 { font-family: var(--sans); margin: 2.2rem 0 0.6rem; }
+.prose p, .prose ul { margin: 0 0 1.2rem; }
+.prose ul { padding-left: 1.4rem; }
+.prose code { font: 0.88em var(--mono); background: var(--surface); border: 1px solid var(--line); padding: 0.1em 0.35em; border-radius: 4px; }
+.prose pre { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0.9rem 1rem; overflow-x: auto; margin: 0 0 1.2rem; line-height: 1.5; }
+.prose pre code { border: 0; background: none; padding: 0; font-size: 0.88rem; }
+
+.narrow { max-width: 24rem; }
+.stack { display: flex; flex-direction: column; gap: 0.5rem; }
+.stack label { font-weight: 600; font-size: 0.92rem; margin-top: 0.6rem; }
+.hint { font-weight: 400; color: var(--muted); font-size: 0.82rem; }
+input[type=text], input[type=password], textarea {
+  width: 100%; font: inherit; color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: 0.6rem 0.7rem;
+}
+textarea { font: 0.95rem/1.55 var(--mono); resize: vertical; min-height: 12rem; }
+.check { display: flex; align-items: center; gap: 0.5rem; font-weight: 400; }
+.row { display: flex; align-items: center; gap: 1.25rem; margin-top: 0.8rem; }
+
+button, .button {
+  font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block;
+  background: var(--accent); color: var(--accent-fg); border: 0; border-radius: 6px; padding: 0.55rem 1.1rem;
+}
+button.link { background: none; color: var(--accent); padding: 0; font-weight: 400; font-size: inherit; text-decoration: underline; text-underline-offset: 0.18em; }
+button.danger { background: var(--danger); color: var(--bg); }
+
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+.bar h1 { margin: 0; }
+.notice { padding: 0.65rem 0.9rem; border-radius: 6px; background: var(--ok-bg); color: var(--ok-fg); margin: 0 0 1.25rem; }
+.notice.error { background: var(--err-bg); color: var(--err-fg); }
+.badge { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 0.1rem 0.55rem; border-radius: 999px; background: var(--draft-bg); color: var(--draft-fg); }
+.badge.live { background: var(--ok-bg); color: var(--ok-fg); }
+table.admin { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+table.admin th { text-align: left; color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+table.admin th, table.admin td { padding: 0.65rem 0.5rem; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+table.admin td:first-child { overflow-wrap: anywhere; }
+table.admin .actions { text-align: right; white-space: nowrap; }
+.backup { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+.backup h2 { font-size: 1.1rem; margin: 0 0 0.3rem; }
+.backup p { margin: 0 0 0.8rem; color: var(--muted); font-size: 0.95rem; }
+.danger-zone { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+.danger-zone summary { cursor: pointer; color: var(--danger); }
+
+@media (max-width: 520px) {
+  table.admin th:nth-child(3), table.admin td:nth-child(3) { display: none; }
+}

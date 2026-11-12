@@ -1,0 +1,17 @@
+name: blog
+version: 0.1.0
+description: A single-author blog built with Spectre and SQLite
+crystal: ">= 1.10.0"
+license: MIT
+
+targets:
+  blog:
+    main: src/main.cr
+
+dependencies:
+  spectre:
+    github: eyszu/spectre
+  db:
+    github: crystal-lang/crystal-db
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3

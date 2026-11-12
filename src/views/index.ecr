@@ -1,0 +1,23 @@
+<% if @posts.empty? %>
+<p class="empty">No posts yet.</p>
+<% else %>
+<ul class="posts">
+<% @posts.each do |post| %>
+  <li>
+    <h2><a href="/posts/<%= h(post.slug) %>"><%= h(post.title) %></a></h2>
+    <p class="meta"><time datetime="<%= iso(post.published_at || post.created_at) %>"><%= date(post.published_at || post.created_at) %></time></p>
+    <p><%= h(Markdown.excerpt(post.body)) %></p>
+  </li>
+<% end %>
+</ul>
+<% end %>
+<% if @page > 1 || @has_next %>
+<nav class="pager">
+<% if @page > 1 %>
+  <a href="<%= @page == 2 ? "/" : "/?page=#{@page - 1}" %>">&larr; Newer</a>
+<% end %>
+<% if @has_next %>
+  <a class="next" href="/?page=<%= @page + 1 %>">Older &rarr;</a>
+<% end %>
+</nav>
+<% end %>

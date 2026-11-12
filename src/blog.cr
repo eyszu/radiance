@@ -1,0 +1,7 @@
+require "spectre"
+require "./blog/config"
+require "./blog/store"
+require "./blog/auth"
+require "./blog/markdown"
+require "./blog/views"
+require "./blog/app"

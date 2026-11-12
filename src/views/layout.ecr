@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= h(@page_title.empty? ? @config.title : "#{@page_title} · #{@config.title}") %></title>
+<meta name="description" content="<%= h(@description) %>">
+<link rel="alternate" type="application/rss+xml" title="<%= h(@config.title) %>" href="/feed.xml">
+<link rel="stylesheet" href="/static/style.css?v=<%= h(@css_version) %>">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="/"><%= h(@config.title) %></a>
+  <nav>
+<% if @admin %>
+    <a href="/admin">Dashboard</a>
+    <a href="/admin/new">New post</a>
+    <form method="post" action="/logout">
+      <input type="hidden" name="csrf" value="<%= h(@csrf) %>">
+      <button type="submit" class="link">Log out</button>
+    </form>
+<% else %>
+    <a href="/feed.xml">RSS</a>
+<% end %>
+  </nav>
+</header>
+<main>
+<%= @content %>
+</main>
+<footer class="site">
+  <span><%= h(@config.title) %></span>
+  <a href="/login">Admin</a>
+</footer>
+</body>
+</html>

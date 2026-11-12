@@ -1,0 +1,26 @@
+<h1><%= @post ? "Edit post" : "New post" %></h1>
+<% if @error %>
+<p class="notice error" role="alert"><%= h(@error.to_s) %></p>
+<% end %>
+<form method="post" action="<%= @post ? "/admin/posts/#{@post.not_nil!.id}" : "/admin/posts" %>" class="stack editor">
+  <input type="hidden" name="csrf" value="<%= h(@csrf) %>">
+  <label for="title">Title</label>
+  <input id="title" name="title" type="text" maxlength="200" value="<%= h(@title) %>" required>
+  <label for="body">Body <span class="hint">Markdown: # headings, **bold**, *italic*, `code`, [links](https://example.com), - lists, ``` code blocks</span></label>
+  <textarea id="body" name="body" rows="22" required><%= h(@body) %></textarea>
+  <label class="check"><input type="checkbox" name="publish" value="1"<%= @publish ? " checked" : "" %>> Published</label>
+  <div class="row">
+    <button type="submit">Save</button>
+    <a href="/admin">Cancel</a>
+  </div>
+</form>
+<% if post = @post %>
+<details class="danger-zone">
+  <summary>Delete this post</summary>
+  <p>This cannot be undone.</p>
+  <form method="post" action="/admin/posts/<%= post.id %>/delete">
+    <input type="hidden" name="csrf" value="<%= h(@csrf) %>">
+    <button type="submit" class="danger">Delete permanently</button>
+  </form>
+</details>
+<% end %>
