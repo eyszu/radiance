@@ -11,8 +11,17 @@ One admin, one password, kept in `.env`. Visitors read; only you can write.
 
 ## Run it
 
-Requires Crystal 1.10+ and the SQLite development library (`sudo apt install libsqlite3-dev` on Ubuntu,
-`brew install sqlite` on macOS).
+Requires Crystal 1.10+ and a few system libraries that the compiler links against. Install them first, or the
+build stops with `cannot find -lsqlite3`:
+
+| System | Command |
+|---|---|
+| Debian, Ubuntu | `sudo apt install libsqlite3-dev libssl-dev zlib1g-dev libpcre2-dev libgc-dev` |
+| Fedora | `sudo dnf install sqlite-devel openssl-devel zlib-devel pcre2-devel gc-devel` |
+| Arch | `sudo pacman -S sqlite openssl zlib pcre2 gc` |
+| macOS | `brew install sqlite openssl pcre2 bdw-gc` |
+
+If you installed Crystal from your system's package manager, most of these are already present. SQLite usually is not.
 
 ```sh
 cp .env.example .env        # then edit .env and set ADMIN_PASSWORD
