@@ -1,6 +1,6 @@
 # Blog
 
-A single-author blog built with [Spectre](https://github.com/eyszu/spectre) (a blazing fast Crystal web microframework) and SQLite.
+A single-author blog built with [Spectre](https://github.com/eyszu/spectre) (An extremely fast, Express.js-style web microframework for Crystal) and SQLite.
 One admin, one password, kept in `.env`. Visitors read; only you can write.
 
 - Public pages: post list with pagination, post pages, RSS feed at `/feed.xml`.
